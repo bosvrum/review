@@ -19,5 +19,8 @@
     <%= format_total_gross(@movie) %>
   </p>
 </article>
-<%= link_to ('All Movies'), movies_path  %>
-<%= link_to 'Edit', edit_movie_path  %>
+<nav>
+  <%= link_to "All Movies", movies_path %> |
+  <%= link_to "Edit", edit_movie_path(@movie) %> |
+  <%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: 'Are you sure?' } %>
+</nav>
