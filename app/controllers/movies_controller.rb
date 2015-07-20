@@ -14,7 +14,8 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
-      redirect_to @movie, notice: "Movie succesfully updated!"
+      flash[:notice] = "Movie successfully updated!"
+      redirect_to @movie
     else
       render :edit
     end
@@ -27,7 +28,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to @movie, notice: "You created a new movie!"
+      redirect_to @movie, notice: "Movie successfully created!"
     else
       render :new
     end
@@ -36,7 +37,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.delete
-    redirect_to movies_url
+    redirect_to movies_url, alert: "Movie successfully deleted!"
   end
 
   private
