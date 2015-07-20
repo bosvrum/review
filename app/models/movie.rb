@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.released
-    order("released_on desc")
+    where("released_on <= ?", Time.now).order("released_on desc")
   end
 
   def self.hits
