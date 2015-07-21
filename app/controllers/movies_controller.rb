@@ -38,6 +38,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.delete
     redirect_to movies_url, alert: "Movie successfully deleted!"
+    #redirect_to movies_url, danger: "I'm sorry, Catalin, I'm afraid I can't do that!"
   end
 
   private
